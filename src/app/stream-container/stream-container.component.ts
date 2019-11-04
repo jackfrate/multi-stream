@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class StreamContainerComponent implements OnInit {
 
   // map of streaming services, then a list of channels within them
-  streamMap: Set<StreamPair>;
+  streamMap: Set<StreamPair> = new Set();
 
   constructor() { }
 
@@ -32,6 +32,3 @@ export class StreamPair {
   constructor(public readonly channel: string, public readonly service: string) { }
 }
 
-/**
- * stream identifier objects
- */
