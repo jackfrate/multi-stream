@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StreamSelectComponent implements OnInit {
 
-
+  readonly streamSites: string[] = ["Twitch", "Mixer"];
 
   constructor() { }
 
