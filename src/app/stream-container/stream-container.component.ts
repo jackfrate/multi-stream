@@ -31,4 +31,3 @@ export class StreamContainerComponent implements OnInit {
 export class StreamPair {
   constructor(public readonly channel: string, public readonly service: string) { }
 }
-
