@@ -19,9 +19,10 @@ export class MixerPlayerComponent implements StreamPlayer, OnInit {
   channelName: string;
 
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
+    console.log(this.getIFrameSrc());
   }
 
   ngOnChanges() {

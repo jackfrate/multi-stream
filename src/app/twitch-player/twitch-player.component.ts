@@ -20,8 +20,6 @@ export class TwitchPlayerComponent implements StreamPlayer, OnInit {
     console.log(this.getIFrameSrc());
   }
 
-  ngOnChanges() { }
-
   getIFrameSrc(options?: IFrameOptions): string {
     // TODO: add options processing
     return `${this.twitchRoot}${this.channelName}${this.makeOptionsString(options)}`;
