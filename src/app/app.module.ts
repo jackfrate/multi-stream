@@ -7,13 +7,15 @@ import { TwitchPlayerComponent } from './twitch-player/twitch-player.component';
 import { MixerPlayerComponent } from './mixer-player/mixer-player.component';
 import { StreamSelectComponent } from './stream-select/stream-select.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StreamContainerComponent } from './stream-container/stream-container.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TwitchPlayerComponent,
     MixerPlayerComponent,
-    StreamSelectComponent
+    StreamSelectComponent,
+    StreamContainerComponent
   ],
   imports: [
     BrowserModule,
