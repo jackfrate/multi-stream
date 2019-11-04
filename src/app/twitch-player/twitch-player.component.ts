@@ -14,9 +14,12 @@ export class TwitchPlayerComponent implements StreamPlayer, OnInit {
   @Input()
   channelName: string;
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
+    console.log(this.getIFrameSrc());
   }
 
   getIFrameSrc(options?: IFrameOptions): string {

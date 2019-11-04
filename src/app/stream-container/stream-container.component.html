@@ -1,1 +1,12 @@
-<p>stream-container works!</p>
+<div class="stream-container">
+  <div *ngFor="let stream of streamSet" class="stream-item">
+    <!-- if its a twitch stream -->
+    <app-twitch-player *ngIf="stream.service == twitchSite">
+      <app-twitch-player [channelName]="stream.channelName"></app-twitch-player>
+    </app-twitch-player>
+    <!-- if its a mixer stream -->
+    <app-mixer-player *ngIf="stream.service == mixerSite">
+      <app-mixer-player [channelName]="stream.channelName"></app-mixer-player>
+    </app-mixer-player>
+  </div>
+</div>

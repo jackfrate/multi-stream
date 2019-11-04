@@ -7,21 +7,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StreamContainerComponent implements OnInit {
 
-  // map of streaming services, then a list of channels within them
-  streamMap: Set<StreamPair> = new Set();
+  public readonly twitchSite: string = 'twitch';
+  public readonly mixerSite: string = 'mixer';
 
-  constructor() { }
+
+  // map of streaming services, then a list of channels within them
+  streamSet: Set<StreamPair> = new Set(this.getDummyData());
+
+  constructor() {
+    console.log('YOOOO');
+    this.streamSet.forEach((sPair: StreamPair) => {
+      console.log(`${sPair.channel} + ${sPair.service}`);
+    });
+  }
 
   ngOnInit() {
   }
 
   addStreamPair(streamPair: StreamPair) {
-    this.streamMap.add(streamPair);
+    this.streamSet.add(streamPair);
   }
 
   // removeStreamPair(streamPair: StreamPair) {
   //   this.streamMap.delete(streamPair);
   // }
+
+  private getDummyData(): StreamPair[] {
+    return [
+      {
+        channel: 'gladd',
+        service: 'twitch'
+      },
+      {
+        channel: 'c9sneaky',
+        service: 'twitch'
+      },
+      {
+        channel: 'shroud',
+        service: 'mixer'
+      }
+    ]
+  }
+
+
 
 }
 
