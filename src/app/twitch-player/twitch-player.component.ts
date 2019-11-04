@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import { StreamPlayer, IFrameOptions } from '../player-interface/stream-player';
 
 @Component({
@@ -14,10 +14,10 @@ export class TwitchPlayerComponent implements StreamPlayer, OnInit {
 
   @Input() channelName: string;
 
-  constructor() { }
+  constructor(private hostElement: ElementRef, ) { }
 
   ngOnInit() {
-    console.log(this.getIFrameSrc());
+
   }
 
   getIFrameSrc(options?: IFrameOptions): string {

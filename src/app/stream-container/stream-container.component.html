@@ -1,12 +1,15 @@
 <div class="stream-container">
   <div *ngFor="let stream of streamSet" class="stream-item">
+    <iframe [src]="getStreamSrc(stream) | safe" frameborder="0"></iframe>
     <!-- if its a twitch stream -->
-    <app-twitch-player *ngIf="stream.service == twitchSite">
-      <app-twitch-player [channelName]="stream.channel"></app-twitch-player>
-    </app-twitch-player>
+    <!-- <app-twitch-player *ngIf="stream.service == twitchSite"> -->
+    <!-- <app-twitch-player [channelName]="stream.channel"></app-twitch-player> -->
+    <!-- <iframe [src]="" frameborder="0"></iframe> -->
+    <!-- </app-twitch-player> -->
     <!-- if its a mixer stream -->
-    <app-mixer-player *ngIf="stream.service == mixerSite">
-      <app-mixer-player [channelName]="stream.channel"></app-mixer-player>
-    </app-mixer-player>
+    <!-- <app-mixer-player *ngIf="stream.service == mixerSite"> -->
+    <!-- <app-mixer-player [channelName]="stream.channel"></app-mixer-player> -->
+    <!-- <iframe [src]="" frameborder="0"></iframe> -->
+    <!-- </app-mixer-player> -->
   </div>
 </div>
