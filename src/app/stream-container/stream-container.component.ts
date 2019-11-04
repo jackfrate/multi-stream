@@ -56,7 +56,7 @@ export class StreamContainerComponent implements OnInit {
     }
     if (pair.service === 'mixer') {
       return `https://mixer.com/embed/player/${pair.channel}`;
-    }
+    } 
   }
 }
 
