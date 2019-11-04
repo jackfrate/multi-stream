@@ -8,7 +8,7 @@ import { StreamPlayer, IFrameOptions } from '../player-interface/stream-player';
 })
 export class MixerPlayerComponent implements StreamPlayer, OnInit {
 
-  public readonly mixerRoot = 'https://mixer.com/embed/player/';
+  public static readonly mixerRoot = 'https://mixer.com/embed/player/';
 
   // things for the iframe
   iframeSrc: string;
@@ -19,23 +19,20 @@ export class MixerPlayerComponent implements StreamPlayer, OnInit {
   channelName: string;
 
 
-  constructor() {}
+  constructor() { }
+
+  static getIFrameSrc(channelName: string, options?: IFrameOptions): string {
+    // TODO: add options processing
+    return `${MixerPlayerComponent.mixerRoot}${channelName}${MixerPlayerComponent.makeOptionsString(options)}`;
+  }
+
+  // TODO: implement
+  static makeOptionsString(options?: IFrameOptions): string {
+    return '';
+  }
 
   ngOnInit() {
   }
 
-  ngOnChanges() {
-
-  }
-
-  getIFrameSrc(options?: IFrameOptions): string {
-    // TODO: add options processing
-    return `${this.mixerRoot}${this.channelName}${this.makeOptionsString(options)}`;
-  }
-
-  // TODO: implement
-  makeOptionsString(options?: IFrameOptions): string {
-    return '';
-  }
 }
 

@@ -9,26 +9,24 @@ import { StreamPlayer, IFrameOptions } from '../player-interface/stream-player';
 export class TwitchPlayerComponent implements StreamPlayer, OnInit {
 
   // public readonly twitchRoot = 'https://player.twitch.tv/';
-  public readonly twitchRoot = 'https://player.twitch.tv/?channel=';
+  public static readonly twitchRoot = 'https://player.twitch.tv/?channel=';
 
 
   @Input() channelName: string;
 
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.getIFrameSrc());
-  }
-
-  ngOnChanges() { }
-
-  getIFrameSrc(options?: IFrameOptions): string {
+  static getIFrameSrc(channelName: string, options?: IFrameOptions): string {
     // TODO: add options processing
-    return `${this.twitchRoot}${this.channelName}${this.makeOptionsString(options)}`;
+    return `${TwitchPlayerComponent.twitchRoot}${channelName}${TwitchPlayerComponent.makeOptionsString(options)}`;
   }
 
-  makeOptionsString(options?: IFrameOptions): string {
+  static makeOptionsString(options?: IFrameOptions): string {
     return '';
+  }
+
+  ngOnInit() {
+
   }
 
 }

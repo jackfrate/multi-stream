@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MixerPlayerComponent } from '../mixer-player/mixer-player.component';
+import { TwitchPlayerComponent } from '../twitch-player/twitch-player.component';
 
 @Component({
   selector: 'app-stream-container',
@@ -49,7 +51,13 @@ export class StreamContainerComponent implements OnInit {
     ]
   }
 
+  makeMixerName(channelName: string) {
+    return MixerPlayerComponent.getIFrameSrc(channelName);
+  }
 
+  makeTwitchName(channelName: string) {
+    return TwitchPlayerComponent.getIFrameSrc(channelName);
+  }
 
 }
 
