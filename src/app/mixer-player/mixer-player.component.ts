@@ -8,33 +8,29 @@ import { StreamPlayer, IFrameOptions } from '../player-interface/stream-player';
 })
 export class MixerPlayerComponent implements StreamPlayer, OnInit {
 
+  public static readonly mixerRoot = 'https://mixer.com/embed/player/';
+
   // things for the iframe
   iframeSrc: string;
-  isVod?: boolean;
-  height?: string;
-  width?: string;
-  muted?: boolean;
 
 
   // input of the channel name
   @Input()
   channelName: string;
 
-  public static readonly mixerRoot = "https://mixer.com/embed/player/";
 
   constructor() { }
 
   ngOnInit() {
-    this.createIFrameSrc();
   }
 
-  private createIFrameSrc(options?: IFrameOptions): void {
+  getIFrameSrc(options?: IFrameOptions): string {
     // TODO: add options processing
-    this.iframeSrc = `${MixerPlayerComponent.mixerRoot}${this.channelName}${this.makeOptionsString(options)}`;
+    return `${MixerPlayerComponent.mixerRoot}${this.channelName}${this.makeOptionsString(options)}`;
   }
 
   // TODO: implement
-  private makeOptionsString(options?: IFrameOptions): string {
+  makeOptionsString(options?: IFrameOptions): string {
     return '';
   }
 }

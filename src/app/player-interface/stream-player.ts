@@ -3,17 +3,12 @@
  */
 
 export interface StreamPlayer {
-  // name of channel
+  // name of channel (will be an input)
   channelName: string;
   // the src for the iframe to embed the stream
-  iframeSrc: string;
-  // if the video is a vod or a stream
-  isVod?: boolean;
 
-  // iframe properties
-  height?: string;
-  width?: string;
-  muted?: boolean;
+  getIFrameSrc(options?: IFrameOptions): string;
+  makeOptionsString(options?: IFrameOptions): string;
 }
 
 export interface IFrameOptions {
