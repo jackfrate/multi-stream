@@ -24,9 +24,9 @@ export class StreamContainerComponent implements OnInit {
   ngOnInit() {
   }
 
-  addStreamPair(streamPair: StreamPair) {
-    this.streamSet.add(streamPair);
-  }
+  // addStreamPair(streamPair: StreamPair) {
+  //   this.streamSet.add(streamPair);
+  // }
 
   // removeStreamPair(streamPair: StreamPair) {
   //   this.streamMap.delete(streamPair);
