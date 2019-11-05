@@ -29,15 +29,20 @@
   <mat-dialog-actions>
     <div class="actions-container">
       <div class="button-holder">
-        <button class="mat-raised-button">Close</button>
-      </div>
-      <div class="button-holder">
         <!-- we pass in values from the forms to this method -->
+        <!-- add stream -->
         <button
           (click)="addStream(cName.value, sName.value)"
           class="mat-raised-button mat-primary"
         >
           Add
+        </button>
+      </div>
+
+      <!-- close -->
+      <div class="button-holder">
+        <button [mat-dialog-close]="true" class="mat-raised-button">
+          Close
         </button>
       </div>
     </div>
