@@ -1,12 +1,11 @@
-<!-- <div class="stream-select">
-  <mat-title>Add a Stream</mat-title>
-  <mat-dialog-contents>
-    <mat-form-field>
-      <input matInput required placeholder="Stream Name" />
-    </mat-form-field>
-  </mat-dialog-contents>
-  <mat-dialog-actions>
-    <button mat-button [mat-dialog-close]="true">Add Stream</button>
-  </mat-dialog-actions>
-</div> -->
-<p>jack</p>
+<div class="stream-select">
+  <h4>Basic mat-select</h4>
+  <mat-form-field>
+    <mat-label>Favorite food</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let site of siteList" [value]="site">
+        {{ site }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

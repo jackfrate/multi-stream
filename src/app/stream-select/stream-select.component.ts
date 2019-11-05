@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StreamPair } from '../stream-container/stream-container.component';
 
 @Component({
   selector: 'app-stream-select',
@@ -7,11 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StreamSelectComponent implements OnInit {
 
-  readonly streamSites: string[] = ["Twitch", "Mixer"];
+  // TODO: maybe get these in a service
+  readonly siteList: string[] = ['twitch, mixer'];
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  makeStreamPair(channelName: string, site: string): StreamPair {
+    return {
+      channel: channelName,
+      service: site
+    }
   }
 
 }

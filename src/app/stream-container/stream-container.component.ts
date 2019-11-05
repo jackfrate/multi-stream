@@ -10,7 +10,6 @@ export class StreamContainerComponent implements OnInit {
   public readonly twitchSite: string = 'twitch';
   public readonly mixerSite: string = 'mixer';
 
-
   // map of streaming services, then a list of channels within them
   streamSet: Set<StreamPair> = new Set(this.getDummyData());
 
