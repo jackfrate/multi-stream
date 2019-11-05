@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TwitchPlayerComponent } from '../twitch-player/twitch-player.component';
 
 @Component({
   selector: 'app-stream-container',
@@ -56,7 +55,7 @@ export class StreamContainerComponent implements OnInit {
     }
     if (pair.service === 'mixer') {
       return `https://mixer.com/embed/player/${pair.channel}`;
-    } 
+    }
   }
 }
 
