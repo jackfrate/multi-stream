@@ -3,25 +3,43 @@
   <!-- the forms to fill -->
   <mat-dialog-content>
     <!-- input channel -->
+    <div class="dialog-body">
+      <div class="form-holder">
+        <mat-form-field>
+          <input matInput placeholder="Channel Name" id="cName" #cName />
+        </mat-form-field>
+      </div>
 
-    <!-- input streaming site -->
-    <mat-form-field>
-      <input matInput placeholder="Channel Name" />
-      <mat-label>Streaming Site</mat-label>
-      <!-- <mat-input></mat-input> -->
-      <mat-select>
-        <mat-option *ngFor="let site of serviceList" [value]="site">
-          {{ site }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+      <!-- input streaming site -->
+      <div class="form-holder">
+        <mat-form-field>
+          <mat-label>Streaming Site</mat-label>
+          <!-- <mat-input></mat-input> -->
+          <mat-select id="sName" #sName>
+            <mat-option *ngFor="let site of serviceList" [value]="site">
+              {{ site }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
   </mat-dialog-content>
 
   <!-- action buttons -->
   <mat-dialog-actions>
     <div class="actions-container">
-      <button class="mat-raised-button">Close</button>
-      <button class="mat-raised-button mat-primary">Add</button>
+      <div class="button-holder">
+        <button class="mat-raised-button">Close</button>
+      </div>
+      <div class="button-holder">
+        <!-- we pass in values from the forms to this method -->
+        <button
+          (click)="addStream(cName.value, sName.value)"
+          class="mat-raised-button mat-primary"
+        >
+          Add
+        </button>
+      </div>
     </div>
   </mat-dialog-actions>
 </div>

@@ -16,7 +16,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MainPageComponent } from './main-page/main-page.component';
 import { MatDialogModule } from "@angular/material";
 import { NewStreamDialogComponent } from './new-stream-dialog/new-stream-dialog.component';
+import { MatInputModule } from '@angular/material/input';
 
+
+// TODO: need to make a separate module for material stuff
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import { NewStreamDialogComponent } from './new-stream-dialog/new-stream-dialog.
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule
   ],
   exports: [
     MatSelectModule,
@@ -45,7 +49,8 @@ import { NewStreamDialogComponent } from './new-stream-dialog/new-stream-dialog.
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent],

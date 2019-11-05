@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { StreamPair } from './stream-container/stream-container.component';
+import { MatDialogRef } from '@angular/material';
 
 @Injectable({
   providedIn: 'root'
