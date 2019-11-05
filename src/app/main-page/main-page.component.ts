@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from "@angular/material";
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { NewStreamDialogComponent } from '../new-stream-dialog/new-stream-dialog.component';
 
 @Component({
