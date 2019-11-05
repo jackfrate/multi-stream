@@ -22,6 +22,10 @@ export class StreamListService {
     this.streamSet.delete(stream);
   }
 
+  getStreamServices(): string[] {
+    return ['twitch', 'mixer'];
+  }
+
   private getDummyData(): StreamPair[] {
     return [
       {

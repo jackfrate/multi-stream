@@ -21,7 +21,7 @@ export class StreamContainerComponent implements OnInit {
   getStreamSet(): Set<StreamPair> {
     return this.streamListSvc.getStreamSet();
   }
-  
+
   addStreamPair(streamPair: StreamPair) {
     this.streamListSvc.addStream(streamPair);
   }
@@ -30,8 +30,7 @@ export class StreamContainerComponent implements OnInit {
     this.streamListSvc.removeStream(streamPair);
   }
 
-
-
+  
   // TODO: make this use a map of pair services and urls to return
   getStreamSrc(pair: StreamPair): string {
     if (pair.service === this.twitchSite) {
