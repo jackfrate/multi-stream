@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StreamSelectComponent } from './stream-select/stream-select.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StreamContainerComponent } from './stream-container/stream-container.component';
 import { SafePipe } from './safe.pipe';
@@ -24,7 +23,6 @@ import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
-    StreamSelectComponent,
     StreamContainerComponent,
     MainPageComponent,
     SafePipe,
