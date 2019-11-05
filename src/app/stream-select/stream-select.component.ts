@@ -9,7 +9,7 @@ import { StreamPair } from '../stream-container/stream-container.component';
 export class StreamSelectComponent implements OnInit {
 
   // TODO: maybe get these in a service
-  readonly siteList: string[] = ['twitch, mixer'];
+  readonly siteList: string[] = ['twitch', 'mixer'];
 
   constructor() { }
 

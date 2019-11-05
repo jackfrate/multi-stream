@@ -27,7 +27,7 @@ import { MatFormField, MatLabel, MatFormFieldModule } from '@angular/material/fo
   ],
   exports: [
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
