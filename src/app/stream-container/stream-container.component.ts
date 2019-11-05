@@ -21,13 +21,14 @@ export class StreamContainerComponent implements OnInit {
   getStreamSet(): Set<StreamPair> {
     return this.streamListSvc.getStreamSet();
   }
-  // addStreamPair(streamPair: StreamPair) {
-  //   this.streamSet.add(streamPair);
-  // }
+  
+  addStreamPair(streamPair: StreamPair) {
+    this.streamListSvc.addStream(streamPair);
+  }
 
-  // removeStreamPair(streamPair: StreamPair) {
-  //   this.streamMap.delete(streamPair);
-  // }
+  removeStreamPair(streamPair: StreamPair) {
+    this.streamListSvc.removeStream(streamPair);
+  }
 
 
 
