@@ -14,12 +14,7 @@ export class StreamContainerComponent implements OnInit {
   // map of streaming services, then a list of channels within them
   streamSet: Set<StreamPair> = new Set(this.getDummyData());
 
-  constructor() {
-    console.log('YOOOO');
-    this.streamSet.forEach((sPair: StreamPair) => {
-      console.log(`${sPair.channel} + ${sPair.service}`);
-    });
-  }
+  constructor() {}
 
   ngOnInit() {
   }
