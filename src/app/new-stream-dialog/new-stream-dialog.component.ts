@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StreamListService } from '../stream-list.service';
 import { StreamPair } from '../stream-container/stream-container.component';
-import { FormGroup } from '@angular/forms';
-import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-new-stream-dialog',
@@ -10,9 +8,6 @@ import { MatDialogRef } from '@angular/material';
   styleUrls: ['./new-stream-dialog.component.scss']
 })
 export class NewStreamDialogComponent {
-
-  form: FormGroup;
-
 
   // fields for the dialog
   readonly dialogTitle = 'Add New Stream';

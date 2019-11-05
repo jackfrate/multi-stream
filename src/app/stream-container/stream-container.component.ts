@@ -30,7 +30,7 @@ export class StreamContainerComponent implements OnInit {
     this.streamListSvc.removeStream(streamPair);
   }
 
-  
+
   // TODO: make this use a map of pair services and urls to return
   getStreamSrc(pair: StreamPair): string {
     if (pair.service === this.twitchSite) {
@@ -46,5 +46,5 @@ export class StreamContainerComponent implements OnInit {
  * pair objects
  */
 export class StreamPair {
-  constructor(public readonly channel: string, public readonly service: string) { }
+  constructor(public channel: string, public service: string) { }
 }
