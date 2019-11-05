@@ -12,7 +12,10 @@ import { MatFormField, MatLabel, MatFormFieldModule } from '@angular/material/fo
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MainPageComponent } from './main-page/main-page.component';
+import { MatDialogModule } from "@angular/material";
+import { NewStreamDialogComponent } from './new-stream-dialog/new-stream-dialog.component';
 
 
 @NgModule({
@@ -20,7 +23,9 @@ import { MatIconModule } from '@angular/material/icon';
     AppComponent,
     StreamSelectComponent,
     StreamContainerComponent,
+    MainPageComponent,
     SafePipe,
+    NewStreamDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,16 +35,20 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule,
+    MatDialogModule
   ],
   exports: [
     MatSelectModule,
     MatFormFieldModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [NewStreamDialogComponent]
 })
 export class AppModule { }

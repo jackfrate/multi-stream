@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StreamListService } from '../stream-list.service';
 
 @Component({
   selector: 'app-stream-container',
@@ -11,9 +12,11 @@ export class StreamContainerComponent implements OnInit {
   public readonly mixerSite: string = 'mixer';
 
   // map of streaming services, then a list of channels within them
-  streamSet: Set<StreamPair> = new Set(this.getDummyData());
+  streamSet: Set<StreamPair>;
 
-  constructor() { }
+  constructor(private streamListSvc: StreamListService) {
+    this.streamSet = streamListSvc.getStreamData();
+  }
 
   ngOnInit() {
   }
@@ -26,22 +29,7 @@ export class StreamContainerComponent implements OnInit {
   //   this.streamMap.delete(streamPair);
   // }
 
-  private getDummyData(): StreamPair[] {
-    return [
-      {
-        channel: 'gladd',
-        service: 'twitch'
-      },
-      {
-        channel: 'c9sneaky',
-        service: 'twitch'
-      },
-      {
-        channel: 'shroud',
-        service: 'mixer'
-      }
-    ];
-  }
+
 
   // TODO: make this use a map of pair services and urls to return
   getStreamSrc(pair: StreamPair): string {

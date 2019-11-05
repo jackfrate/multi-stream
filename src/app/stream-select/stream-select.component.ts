@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StreamPair } from '../stream-container/stream-container.component';
 
+// TODO: make the main body slide out from the side
+
 @Component({
   selector: 'app-stream-select',
   templateUrl: './stream-select.component.html',
