@@ -50,10 +50,10 @@ export class StreamContainerComponent implements OnInit {
   }
 
   getStreamSrc(pair: StreamPair): string {
-    if (pair.service === 'twitch') {
+    if (pair.service === this.twitchSite) {
       return `https://player.twitch.tv/?channel=${pair.channel}`;
     }
-    if (pair.service === 'mixer') {
+    if (pair.service === this.mixerSite) {
       return `https://mixer.com/embed/player/${pair.channel}`;
     }
   }
