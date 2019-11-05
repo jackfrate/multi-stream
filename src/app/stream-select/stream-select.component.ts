@@ -10,10 +10,15 @@ export class StreamSelectComponent implements OnInit {
 
   // TODO: maybe get these in a service
   readonly siteList: string[] = ['twitch', 'mixer'];
+  open: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  switchPanel() {
+    this.open = !this.open;
   }
 
   makeStreamPair(channelName: string, site: string): StreamPair {

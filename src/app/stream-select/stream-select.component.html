@@ -1,13 +1,30 @@
 <div class="stream-select">
-  <h4>Add New Stream</h4>
-  <!-- TODO: make this show up on hover -->
-  <mat-form-field>
-    <mat-label>Add Stream</mat-label>
-    <!-- <mat-input></mat-input> -->
-    <mat-select>
-      <mat-option *ngFor="let site of siteList" [value]="site">
-        {{ site }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <button
+    mat-icon-button
+    class="free-button"
+    *ngIf="!open"
+    (click)="switchPanel()"
+  >
+    <!-- <mat-icon>playlist_add</mat-icon> -->
+    <mat-icon>add_circle</mat-icon>
+  </button>
+  <mat-card *ngIf="open">
+    <mat-card-title>
+      <button mat-icon-button (click)="switchPanel()">
+        <mat-icon>remove_circle</mat-icon>
+      </button>
+      Add New Stream
+    </mat-card-title>
+    <!-- TODO: make this show up on button click-->
+    <!-- TODO:  -->
+    <mat-form-field>
+      <mat-label>Add Stream</mat-label>
+      <!-- <mat-input></mat-input> -->
+      <mat-select>
+        <mat-option *ngFor="let site of siteList" [value]="site">
+          {{ site }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card>
 </div>
