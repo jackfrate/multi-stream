@@ -10,8 +10,16 @@ export class StreamListService {
 
   constructor() { }
 
-  getStreamData(): Set<StreamPair> {
+  getStreamSet(): Set<StreamPair> {
     return this.streamSet;
+  }
+
+  addStream(stream: StreamPair): void {
+    this.streamSet.add(stream);
+  }
+
+  removeStream(stream: StreamPair): void {
+    this.streamSet.delete(stream);
   }
 
   private getDummyData(): StreamPair[] {

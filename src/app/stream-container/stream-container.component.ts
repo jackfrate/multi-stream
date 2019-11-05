@@ -12,15 +12,15 @@ export class StreamContainerComponent implements OnInit {
   public readonly mixerSite: string = 'mixer';
 
   // map of streaming services, then a list of channels within them
-  streamSet: Set<StreamPair>;
 
-  constructor(private streamListSvc: StreamListService) {
-    this.streamSet = streamListSvc.getStreamData();
-  }
+  constructor(private streamListSvc: StreamListService) { }
 
   ngOnInit() {
   }
 
+  getStreamSet(): Set<StreamPair> {
+    return this.streamListSvc.getStreamSet();
+  }
   // addStreamPair(streamPair: StreamPair) {
   //   this.streamSet.add(streamPair);
   // }

@@ -1,5 +1,5 @@
 <div class="stream-container">
-  <div *ngFor="let stream of streamSet" class="stream-item">
+  <div *ngFor="let stream of getStreamSet()" class="stream-item">
     <iframe [src]="getStreamSrc(stream) | safe" frameborder="0"></iframe>
   </div>
   <app-stream-select></app-stream-select>
