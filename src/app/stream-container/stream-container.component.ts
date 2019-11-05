@@ -46,9 +46,10 @@ export class StreamContainerComponent implements OnInit {
         channel: 'shroud',
         service: 'mixer'
       }
-    ]
+    ];
   }
 
+  // TODO: make this use a map of pair services and urls to return
   getStreamSrc(pair: StreamPair): string {
     if (pair.service === this.twitchSite) {
       return `https://player.twitch.tv/?channel=${pair.channel}`;
