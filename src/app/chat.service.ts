@@ -24,7 +24,7 @@ export class ChatService {
     return this.chatTabs;
   }
 
-  addToChatTabs(pair: StreamPair) {
+  addChatTab(pair: StreamPair) {
     // make sure the name isn't in use,
     if (this.chatTabs.has(pair.channel)) {
       let nameAppend = 1;
@@ -44,7 +44,7 @@ export class ChatService {
 
   // we get tab name from the template
   // its the key in the ngFor loop
-  removeFromChatTab(tabName: string) {
+  removeChatTab(tabName: string) {
     this.chatTabs.delete(tabName);
   }
 }
