@@ -31,12 +31,18 @@
       <div class="button-holder">
         <!-- we pass in values from the forms to this method -->
         <!-- add stream -->
+        <!-- TODO: possibly make this close dialog -->
         <button
           (click)="addStream(cName.value, sName.value)"
           class="mat-raised-button mat-primary"
         >
-          Add
+          Add Stream
         </button>
+      </div>
+
+      <!-- add chat button -->
+      <div class="button-holder">
+        <button class="mat-raised-button mat-primary">Add Chat</button>
       </div>
 
       <!-- close -->

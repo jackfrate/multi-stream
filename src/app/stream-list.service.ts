@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { StreamPair } from './stream-container/stream-container.component';
-import { MatDialogRef } from '@angular/material';
 import { UrlService } from './url.service';
 
 @Injectable({
@@ -16,6 +15,7 @@ export class StreamListService {
     return this.streamSet;
   }
 
+  // TODO: check if stream already exists?
   addStream(stream: StreamPair): void {
     // check if stream is a link
     if (stream.channel.includes('twitch') && this.urlSvc.checkIfUrl(stream.channel)) {

@@ -9,13 +9,21 @@ import { NewStreamDialogComponent } from '../new-stream-dialog/new-stream-dialog
 })
 export class MainPageComponent {
 
-  constructor(private dialog: MatDialog) { }
+  chatOpen: boolean;
+  dialogHeight: string;
+  dialogWidth: string;
+
+  constructor(private dialog: MatDialog) {
+    // TODO: set chat open here from the chat service
+  }
 
   openAddDialog() {
     const dialogConfig = new MatDialogConfig();
-
+    // ? we can change these
+    this.dialogWidth = '400px';
     // dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
+    dialogConfig.width = this.dialogWidth;
 
     this.dialog.open(NewStreamDialogComponent, dialogConfig);
   }
