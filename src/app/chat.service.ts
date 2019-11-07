@@ -7,12 +7,16 @@ import { StreamPair } from './stream-container/stream-container.component';
 export class ChatService {
 
   private chatTabs: Map<string, StreamPair>;
-  chatOpen: boolean;
+  private chatOpen: boolean;
 
   constructor() {
     this.chatTabs = new Map<string, StreamPair>();
     // TODO: will hopefully be a part of the layout svc
     this.chatOpen = false;
+  }
+
+  isChatOpen(): boolean {
+    return this.chatOpen;
   }
 
   toggleChat(): void {
