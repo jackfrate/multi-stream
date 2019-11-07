@@ -31,7 +31,8 @@ export class ChatService {
       let newName = `${pair.channel}${nameAppend}`
       // keep checking until we have a valid name
       while (this.chatTabs.has(newName)) {
-        newName = `${pair.channel}${nameAppend}`
+        // will look like: 'streamName (n)'
+        newName = `${pair.channel} (${nameAppend})`
         nameAppend++;
       }
       this.chatTabs.set(newName, pair);
