@@ -51,4 +51,22 @@ export class ChatService {
   removeChatTab(tabName: string) {
     this.chatTabs.delete(tabName);
   }
+
+  getChatUrl(pair: StreamPair): string {
+    if (pair.isTwitch()) {
+      return this.channelToChatTwitch(pair);
+    }
+    if (pair.isMixer()) {
+      return this.channelToChatMixer(pair);
+    }
+
+  }
+
+  private channelToChatTwitch(pair: StreamPair): string {
+    return `https://www.twitch.tv/embed/${pair.channel}/chat`;
+  };
+
+  private channelToChatMixer(pair: StreamPair): string {
+    return `https://mixer.com/embed/chat/${pair.channel}`;
+  }
 }

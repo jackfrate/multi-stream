@@ -33,10 +33,10 @@ export class StreamContainerComponent implements OnInit {
 
   // TODO: make this use a map of pair services and urls to return
   getStreamSrc(pair: StreamPair): string {
-    if (pair.service === this.twitchSite) {
+    if (pair.isTwitch()) {
       return `https://player.twitch.tv/?channel=${pair.channel}`;
     }
-    if (pair.service === this.mixerSite) {
+    if (pair.isMixer()) {
       return `https://mixer.com/embed/player/${pair.channel}`;
     }
   }
@@ -47,4 +47,21 @@ export class StreamContainerComponent implements OnInit {
  */
 export class StreamPair {
   constructor(public channel: string, public service: string) { }
+
+  //
+  // methods that check for the service
+  // TODO: should change all the checks to use these
+  //
+
+  isTwitch(): boolean {
+    return this.service === 'twitch'
+      ? true
+      : false;
+  }
+
+  isMixer(): boolean {
+    return this.service === 'mixer'
+      ? true
+      : false;
+  }
 }
