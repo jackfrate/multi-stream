@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { NewStreamDialogComponent } from '../new-stream-dialog/new-stream-dialog.component';
+import { ChatService } from '../chat.service';
+import { realpath } from 'fs';
 
 @Component({
   selector: 'app-main-page',
@@ -9,13 +11,19 @@ import { NewStreamDialogComponent } from '../new-stream-dialog/new-stream-dialog
 })
 export class MainPageComponent {
 
+  // chat stuff
   chatOpen: boolean;
-  dialogHeight: string;
+
+  // dialog stuff
   dialogWidth: string;
 
-  constructor(private dialog: MatDialog) {
-    // TODO: set chat open here from the chat service
+  constructor(private dialog: MatDialog, private chatSvc: ChatService) {
+    this.chatOpen = chatSvc.isChatOpen();
   }
+
+  //
+  // add stream dialog methods
+  //
 
   openAddDialog() {
     const dialogConfig = new MatDialogConfig();
@@ -26,6 +34,14 @@ export class MainPageComponent {
     dialogConfig.width = this.dialogWidth;
 
     this.dialog.open(NewStreamDialogComponent, dialogConfig);
+  }
+
+  //
+  // chat methods
+  //
+
+  toggleChat() {
+    this.chatSvc.toggleChat();
   }
 
   // TODO: for remove have a list of active streams that can be removed.
