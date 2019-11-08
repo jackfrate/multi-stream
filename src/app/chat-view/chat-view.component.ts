@@ -19,13 +19,9 @@ export class ChatViewComponent {
   playerHeight: number;
   playerWidth: number;
 
-  private readonly tabHeight = 54; // 48
-  private readonly headerHeight = 70; // 64
-
-  constructor(private streamListSvc: StreamListService, private chatSvc: ChatService) {
+  constructor(private streamListSvc: StreamListService, private frameSvc: IframeSettingService) {
     this.streamList = this.streamListSvc.getStreamSet();
-    this.chatHeight = window.innerHeight - this.tabHeight;
-    // this.playerWidth = window.inner
+    this.chatHeight = frameSvc.getChatHeight();
   }
 
 

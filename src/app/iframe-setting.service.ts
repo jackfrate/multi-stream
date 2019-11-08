@@ -11,15 +11,18 @@ export class IframeSettingService {
 
   // IFRAME fields
   chatHeight: number;
-  videoHeight: number;
-  videoWidth: number;
+  playerHeight: number;
+  playerWidth: number;
+
+  private readonly tabHeight = 54; // 48
+  private readonly headerHeight = 70; // 64
 
   constructor() {
-
+    this.chatHeight = window.innerHeight - this.tabHeight;
   }
 
 
-  getChatSettings(): ChatSettings {
-    return { height: 700 };
+  getChatHeight(): number {
+    return this.chatHeight;
   }
 }
