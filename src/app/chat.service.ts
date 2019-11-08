@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { StreamPair } from './stream-container/stream-container.component';
+import { StreamPair } from './free-objects/stream-pair';
 
 @Injectable({
   providedIn: 'root'

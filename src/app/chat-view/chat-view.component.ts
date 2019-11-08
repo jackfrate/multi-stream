@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../chat.service';
-import { StreamPair } from '../stream-container/stream-container.component';
+import { StreamPair } from '../free-objects/stream-pair';
 
 @Component({
   selector: 'app-chat-view',

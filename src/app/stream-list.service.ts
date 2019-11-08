@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { StreamPair } from './stream-container/stream-container.component';
 import { UrlService } from './url.service';
+import { StreamPair } from './free-objects/stream-pair';
 
 @Injectable({
   providedIn: 'root'
@@ -38,18 +38,9 @@ export class StreamListService {
 
   private getDummyData(): StreamPair[] {
     return [
-      {
-        channel: 'gladd',
-        service: 'twitch'
-      },
-      {
-        channel: 'c9sneaky',
-        service: 'twitch'
-      },
-      {
-        channel: 'shroud',
-        service: 'mixer'
-      }
+      new StreamPair('gladd', 'twitch'),
+      new StreamPair('c9sneaky', 'twitch'),
+      new StreamPair('shroud', 'mixer')
     ];
   }
 }

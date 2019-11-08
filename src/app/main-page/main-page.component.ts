@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { NewStreamDialogComponent } from '../new-stream-dialog/new-stream-dialog.component';
 import { ChatService } from '../chat.service';
-import { realpath } from 'fs';
 
 @Component({
   selector: 'app-main-page',

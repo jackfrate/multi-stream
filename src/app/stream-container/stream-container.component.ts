@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StreamListService } from '../stream-list.service';
+import { StreamPair } from '../free-objects/stream-pair';
 
 @Component({
   selector: 'app-stream-container',
@@ -39,29 +40,5 @@ export class StreamContainerComponent implements OnInit {
     if (pair.isMixer()) {
       return `https://mixer.com/embed/player/${pair.channel}`;
     }
-  }
-}
-
-/**
- * pair objects
- */
-export class StreamPair {
-  constructor(public channel: string, public service: string) { }
-
-  //
-  // methods that check for the service
-  // TODO: should change all the checks to use these
-  //
-
-  isTwitch(): boolean {
-    return this.service === 'twitch'
-      ? true
-      : false;
-  }
-
-  isMixer(): boolean {
-    return this.service === 'mixer'
-      ? true
-      : false;
   }
 }

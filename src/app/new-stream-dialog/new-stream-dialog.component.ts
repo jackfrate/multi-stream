@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StreamListService } from '../stream-list.service';
-import { StreamPair } from '../stream-container/stream-container.component';
+import { StreamPair } from '../free-objects/stream-pair';
 
 @Component({
   selector: 'app-new-stream-dialog',
@@ -19,10 +19,7 @@ export class NewStreamDialogComponent {
   }
 
   addStream(name: string, site: string): void {
-    const pair: StreamPair = {
-      channel: name,
-      service: site
-    };
+    const pair = new StreamPair(name, site)
     this.streamListSvc.addStream(pair);
   }
 }
