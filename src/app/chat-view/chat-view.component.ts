@@ -36,4 +36,8 @@ export class ChatViewComponent {
   getChatSettings(): ChatSettings {
     return this.frameSvc.getChatSettings();
   }
+
+  resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+  }
 }

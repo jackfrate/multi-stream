@@ -1,13 +1,16 @@
 .main-page {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   min-height: 700px;
+  justify-content: space-between;
+  align-self: stretch;
 }
 
-.page-body {
+.left-side {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  // justify-content: space-between;
+  width: 100%;
 }
 
 .toolbar-box {

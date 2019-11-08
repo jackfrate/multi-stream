@@ -1,24 +1,24 @@
 <div class="main-page">
-  <mat-toolbar>
-    <div class="toolbar-box">
-      <p>
-        Multi Stream
-      </p>
-      <!-- add stream dialog -->
-      <button mat-button (click)="openAddDialog()">
-        <mat-icon>add_circle</mat-icon>
-        Add Stream
-      </button>
-      <!-- toggle chat button -->
-      <button mat-button (click)="toggleChat()">
-        <mat-slide-toggle [checked]="chatOpen" (change)="toggleChat($event)">
-          Toggle Chat
-        </mat-slide-toggle>
-      </button>
-    </div>
-  </mat-toolbar>
-  <div class="page-body">
+  <div class="left-side">
+    <mat-toolbar>
+      <div class="toolbar-box">
+        <p>
+          Multi Stream
+        </p>
+        <!-- add stream dialog -->
+        <button mat-button (click)="openAddDialog()">
+          <mat-icon>add_circle</mat-icon>
+          Add Stream
+        </button>
+        <!-- toggle chat button -->
+        <button mat-button (click)="toggleChat()">
+          <mat-slide-toggle [checked]="chatOpen" (change)="toggleChat($event)">
+            Toggle Chat
+          </mat-slide-toggle>
+        </button>
+      </div>
+    </mat-toolbar>
     <app-stream-container></app-stream-container>
-    <app-chat-view *ngIf="chatOpen"></app-chat-view>
   </div>
+  <app-chat-view *ngIf="chatOpen"></app-chat-view>
 </div>
