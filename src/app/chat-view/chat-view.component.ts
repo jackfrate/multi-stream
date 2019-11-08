@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../chat.service';
 import { StreamPair } from '../free-objects/stream-pair';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-chat-view',
@@ -12,7 +12,7 @@ export class ChatViewComponent {
   private chatTabs: Map<string, StreamPair>;
 
   constructor(private chatSvc: ChatService) {
-    this.chatTabs = this.chatSvc.getChatTabs()
+    this.chatTabs = this.chatSvc.getChatTabs();
   }
 
   getTabNames(): string[] {
