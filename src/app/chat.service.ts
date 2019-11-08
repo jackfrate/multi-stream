@@ -12,7 +12,7 @@ export class ChatService {
   constructor() {
     this.chatTabs = new Map<string, StreamPair>();
     // TODO: will hopefully be a part of the layout svc
-    this.chatOpen = false;
+    this.chatOpen = true;
   }
 
   isChatOpen(): boolean {

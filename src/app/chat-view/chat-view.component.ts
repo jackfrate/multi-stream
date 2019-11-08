@@ -19,6 +19,10 @@ export class ChatViewComponent {
     return Array.from(this.chatTabs.keys());
   }
 
+  chatTabLength(): number {
+    return this.getTabNames().length;
+  }
+
   getTabPair(key: string): StreamPair {
     return this.chatTabs.get(key);
   }

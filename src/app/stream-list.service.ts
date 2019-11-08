@@ -7,7 +7,8 @@ import { StreamPair } from './free-objects/stream-pair';
 })
 export class StreamListService {
 
-  streamSet: Set<StreamPair> = new Set(this.getDummyData());
+  // streamSet: Set<StreamPair> = new Set(this.getDummyData());
+  streamSet: Set<StreamPair> = new Set();
 
   constructor(private urlSvc: UrlService) { }
 
