@@ -6,9 +6,8 @@
       class="chat-tabs"
     >
       <iframe
-        id="the-frame"
         [src]="getChatUrl(pair) | safe"
-        [height]="getChatSettings().height"
+        [height]="chatHeight"
         [width]="350"
         frameborder="0"
       ></iframe>

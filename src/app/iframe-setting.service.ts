@@ -4,7 +4,7 @@ import { ChatSettings } from './free-objects/settings-interface';
 @Injectable({
   providedIn: 'root'
 })
-export class IframeSettingService implements OnChanges {
+export class IframeSettingService {
 
   pageHeight: number;
   @ViewChild('myFrame', { static: false }) frameRef: ElementRef;
@@ -15,15 +15,11 @@ export class IframeSettingService implements OnChanges {
   videoWidth: number;
 
   constructor() {
-    // this.pageHeight = this.
-  }
 
-  ngOnChanges() {
-    // this.pageHeight =
   }
 
 
   getChatSettings(): ChatSettings {
-    return { height: this.pageHeight };
+    return { height: 700 };
   }
 }
