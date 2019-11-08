@@ -1,11 +1,16 @@
 <div class="chat-view">
-  <mat-tab-group>
+  <mat-tab-group class="mat-elevation-z4">
     <mat-tab
       *ngFor="let pair of getStreamList()"
       label="{{ pair.channel }}"
       class="chat-tabs"
     >
-      <iframe [src]="getChatUrl(pair) | safe" frameborder="0"></iframe>
+      <iframe
+        [src]="getChatUrl(pair) | safe"
+        [height]="getChatSettings().height"
+        [width]="350"
+        frameborder="0"
+      ></iframe>
     </mat-tab>
   </mat-tab-group>
 </div>

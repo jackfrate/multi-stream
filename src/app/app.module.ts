@@ -17,7 +17,6 @@ import { MatDialogModule } from '@angular/material';
 import { NewStreamDialogComponent } from './new-stream-dialog/new-stream-dialog.component';
 import { MatInputModule } from '@angular/material/input';
 import { ChatViewComponent } from './chat-view/chat-view.component';
-import { AddChatDialogComponent } from './add-chat-dialog/add-chat-dialog.component';
 import { MatTabsModule } from '@angular/material/tabs';
 
 // TODO: need to make a separate module for material stuff
@@ -30,7 +29,6 @@ import { MatTabsModule } from '@angular/material/tabs';
     SafePipe,
     NewStreamDialogComponent,
     ChatViewComponent,
-    AddChatDialogComponent,
   ],
   imports: [
     BrowserModule,

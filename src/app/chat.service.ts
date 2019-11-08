@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { StreamPair } from './free-objects/stream-pair';
 import { StreamListService } from './stream-list.service';
+import { ChatSettings } from './free-objects/settings-interface';
 
 @Injectable({
   providedIn: 'root'

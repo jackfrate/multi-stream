@@ -2,6 +2,8 @@ import { ChatService } from '../chat.service';
 import { StreamPair } from '../free-objects/stream-pair';
 import { Component } from '@angular/core';
 import { StreamListService } from '../stream-list.service';
+import { IframeSettingService } from '../iframe-setting.service';
+import { ChatSettings } from '../free-objects/settings-interface';
 
 @Component({
   selector: 'app-chat-view',
@@ -12,7 +14,7 @@ export class ChatViewComponent {
 
   private streamList: Set<StreamPair>;
 
-  constructor(private streamListSvc: StreamListService) {
+  constructor(private streamListSvc: StreamListService, private frameSvc: IframeSettingService) {
     this.streamList = this.streamListSvc.getStreamSet();
   }
 
@@ -30,5 +32,9 @@ export class ChatViewComponent {
     else {
       return 'https://www.google.com';
     }
+  }
+
+  getChatSettings(): ChatSettings {
+    return this.frameSvc.getChatSettings();
   }
 }
