@@ -18,7 +18,7 @@ import { NewStreamDialogComponent } from './new-stream-dialog/new-stream-dialog.
 import { MatInputModule } from '@angular/material/input';
 import { ChatViewComponent } from './chat-view/chat-view.component';
 import { AddChatDialogComponent } from './add-chat-dialog/add-chat-dialog.component';
-
+import { MatTabsModule } from '@angular/material/tabs';
 
 // TODO: need to make a separate module for material stuff
 
@@ -43,7 +43,8 @@ import { AddChatDialogComponent } from './add-chat-dialog/add-chat-dialog.compon
     MatIconModule,
     MatToolbarModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    MatTabsModule
   ],
   exports: [
     MatSelectModule,
@@ -52,7 +53,8 @@ import { AddChatDialogComponent } from './add-chat-dialog/add-chat-dialog.compon
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-    MatInputModule
+    MatInputModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

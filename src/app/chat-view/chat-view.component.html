@@ -1,6 +1,11 @@
 <div class="chat-view">
-  <div *ngFor="let pair of getStreamList()" class="chat-tabs">
-    <p>for loop works</p>
-    <iframe [src]="getChatUrl(pair) | safe" frameborder="0"></iframe>
-  </div>
+  <mat-tab-group>
+    <mat-tab
+      *ngFor="let pair of getStreamList()"
+      label="{{ pair.channel }}"
+      class="chat-tabs"
+    >
+      <iframe [src]="getChatUrl(pair) | safe" frameborder="0"></iframe>
+    </mat-tab>
+  </mat-tab-group>
 </div>
