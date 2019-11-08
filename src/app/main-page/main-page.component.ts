@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig, MatSlideToggleChange } from '@angular/material';
 import { NewStreamDialogComponent } from '../new-stream-dialog/new-stream-dialog.component';
 import { ChatService } from '../chat.service';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-main-page',
@@ -12,13 +13,21 @@ export class MainPageComponent {
 
   // chat stuff
   chatOpen: boolean;
+  chatToggleSlider: boolean;
 
   // dialog stuff
   dialogWidth: string;
 
+  formGroup: FormGroup;
+
   constructor(private dialog: MatDialog, private chatSvc: ChatService) {
-    this.chatOpen = chatSvc.isChatOpen();
+    this.chatOpen = true;
   }
+
+
+  // onChange() {
+  //   this.toggleChat();
+  // }
 
   //
   // add stream dialog methods
@@ -39,9 +48,7 @@ export class MainPageComponent {
   // chat methods
   //
 
-  toggleChat() {
-    this.chatSvc.toggleChat();
+  toggleChat(event: MatSlideToggleChange) {
+    this.chatOpen = event.checked;
   }
-
-  // TODO: for remove have a list of active streams that can be removed.
 }

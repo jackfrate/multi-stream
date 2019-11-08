@@ -1,4 +1,3 @@
-import { ChatService } from '../chat.service';
 import { StreamPair } from '../free-objects/stream-pair';
 import { Component } from '@angular/core';
 import { StreamListService } from '../stream-list.service';
