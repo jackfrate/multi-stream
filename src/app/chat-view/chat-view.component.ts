@@ -2,8 +2,9 @@ import { StreamPair } from '../free-objects/stream-pair';
 import { Component } from '@angular/core';
 import { StreamListService } from '../stream-list.service';
 import { IframeSettingService } from '../iframe-setting.service';
-import { ChatSettings } from '../free-objects/settings-interface';
+import { ChatSettings, PlayerSettings } from '../free-objects/settings-interface';
 import { Subscription, Observable, fromEvent } from 'rxjs';
+import { ChatService } from '../chat.service';
 
 @Component({
   selector: 'app-chat-view',
@@ -13,13 +14,18 @@ import { Subscription, Observable, fromEvent } from 'rxjs';
 export class ChatViewComponent {
 
   private streamList: Set<StreamPair>;
+
   chatHeight: number;
+  playerHeight: number;
+  playerWidth: number;
 
+  private readonly tabHeight = 54; // 48
+  private readonly headerHeight = 70; // 64
 
-  private readonly tabHeight = 54;
-  constructor(private streamListSvc: StreamListService) {
+  constructor(private streamListSvc: StreamListService, private chatSvc: ChatService) {
     this.streamList = this.streamListSvc.getStreamSet();
     this.chatHeight = window.innerHeight - this.tabHeight;
+    // this.playerWidth = window.inner
   }
 
 
@@ -43,4 +49,6 @@ export class ChatViewComponent {
     // ok yeah I know this is bad lol
     return { height: this.chatHeight };
   }
+
+
 }

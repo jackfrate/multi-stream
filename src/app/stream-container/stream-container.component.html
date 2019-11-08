@@ -1,5 +1,10 @@
 <div class="stream-container">
   <div *ngFor="let stream of getStreamSet()" class="stream-item">
-    <iframe [src]="getStreamSrc(stream) | safe" frameborder="0"></iframe>
+    <iframe
+      [src]="getStreamSrc(stream) | safe"
+      frameborder="0"
+      [height]="getVideoHeight()"
+      [width]="getVideoWidth()"
+    ></iframe>
   </div>
 </div>
