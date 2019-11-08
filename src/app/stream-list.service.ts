@@ -7,8 +7,8 @@ import { StreamPair } from './free-objects/stream-pair';
 })
 export class StreamListService {
 
-  // streamSet: Set<StreamPair> = new Set(this.getDummyData());
-  streamSet: Set<StreamPair> = new Set();
+  streamSet: Set<StreamPair> = new Set(this.getDummyData());
+  // streamSet: Set<StreamPair> = new Set();
 
   constructor(private urlSvc: UrlService) { }
 
@@ -39,8 +39,8 @@ export class StreamListService {
 
   private getDummyData(): StreamPair[] {
     return [
-      new StreamPair('gladd', 'twitch'),
-      new StreamPair('c9sneaky', 'twitch'),
+      // new StreamPair('gladd', 'twitch'),
+      // new StreamPair('c9sneaky', 'twitch'),
       new StreamPair('shroud', 'mixer')
     ];
   }

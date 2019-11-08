@@ -10,13 +10,13 @@ export class StreamPair {
   // TODO: should change all the checks to use these
   //
 
-  isTwitch(): boolean {
+  public isTwitch(): boolean {
     return this.service === 'twitch'
       ? true
       : false;
   }
 
-  isMixer(): boolean {
+  public isMixer(): boolean {
     return this.service === 'mixer'
       ? true
       : false;

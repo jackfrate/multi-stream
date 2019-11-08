@@ -1,6 +1,7 @@
 import { ChatService } from '../chat.service';
 import { StreamPair } from '../free-objects/stream-pair';
 import { Component } from '@angular/core';
+import { StreamListService } from '../stream-list.service';
 
 @Component({
   selector: 'app-chat-view',
@@ -9,22 +10,25 @@ import { Component } from '@angular/core';
 })
 export class ChatViewComponent {
 
-  private chatTabs: Map<string, StreamPair>;
+  private streamList: Set<StreamPair>;
 
-  constructor(private chatSvc: ChatService) {
-    this.chatTabs = this.chatSvc.getChatTabs();
+  constructor(private streamListSvc: StreamListService) {
+    this.streamList = this.streamListSvc.getStreamSet();
   }
 
-  getTabNames(): string[] {
-    return Array.from(this.chatTabs.keys());
+  getStreamList(): Set<StreamPair> {
+    return this.streamList;
   }
 
-  chatTabLength(): number {
-    return this.getTabNames().length;
+  getChatUrl(pair: StreamPair): string {
+    if (pair.isTwitch()) {
+      return `https://www.twitch.tv/embed/${pair.channel}/chat`;
+    }
+    if (pair.isMixer()) {
+      return `https://mixer.com/embed/chat/${pair.channel}`;
+    }
+    else {
+      return 'https://www.google.com';
+    }
   }
-
-  getTabPair(key: string): StreamPair {
-    return this.chatTabs.get(key);
-  }
-
 }

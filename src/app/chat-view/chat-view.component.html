@@ -1,6 +1,6 @@
 <div class="chat-view">
-  <!-- TODO: no chat solution -->
-  <!-- TODO: one chat solution -->
-  <!-- TODO: n > 1 chat solution -->
-  <p>chat works</p>
+  <div *ngFor="let pair of getStreamList()" class="chat-tabs">
+    <p>for loop works</p>
+    <iframe [src]="getChatUrl(pair) | safe" frameborder="0"></iframe>
+  </div>
 </div>
