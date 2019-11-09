@@ -1,9 +1,10 @@
 .main-page {
   display: flex;
   flex-direction: row;
-  min-height: 700px;
+  // min-height: 700px;
   justify-content: space-between;
   align-self: stretch;
+  align-items: flex-start;
 }
 
 .left-side {
@@ -18,4 +19,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
+}
+
+.chat {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }

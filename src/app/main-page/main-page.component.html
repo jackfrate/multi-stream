@@ -17,12 +17,12 @@
           </mat-slide-toggle>
         </button>
         <button mat-button (click)="openAdjustStreamDialog()">
-          <mat-icon>photo_size_select_large</mat-icon>
-          Change Size
+          <mat-icon>grid_on</mat-icon>
+          Set Columns
         </button>
       </div>
     </mat-toolbar>
     <app-stream-container></app-stream-container>
   </div>
-  <app-chat-view *ngIf="chatOpen"></app-chat-view>
+  <app-chat-view class="chat" *ngIf="chatOpen"></app-chat-view>
 </div>
