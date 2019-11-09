@@ -19,7 +19,7 @@ export class NewStreamDialogComponent {
   }
 
   addStream(name: string, site: string): void {
-    const pair = new StreamPair(name, site)
+    const pair = new StreamPair(name, site);
     this.streamListSvc.addStream(pair);
   }
 }

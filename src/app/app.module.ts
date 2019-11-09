@@ -19,6 +19,9 @@ import { MatInputModule } from '@angular/material/input';
 import { ChatViewComponent } from './chat-view/chat-view.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { StreamSizeAdjusterComponent } from './stream-size-adjuster/stream-size-adjuster.component';
+import { FormsModule } from '@angular/forms';
+
 
 // TODO: need to make a separate module for material stuff
 
@@ -30,11 +33,13 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     SafePipe,
     NewStreamDialogComponent,
     ChatViewComponent,
+    StreamSizeAdjusterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatSelectModule,
     MatFormFieldModule,
     MatCardModule,
@@ -44,7 +49,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatDialogModule,
     MatInputModule,
     MatTabsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
   ],
   exports: [
     MatSelectModule,
@@ -55,10 +60,10 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatToolbarModule,
     MatInputModule,
     MatTabsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [NewStreamDialogComponent]
+  entryComponents: [NewStreamDialogComponent, StreamSizeAdjusterComponent]
 })
 export class AppModule { }

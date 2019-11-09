@@ -1,0 +1,11 @@
+.dialog-body {
+  display: flex;
+  flex-direction: column;
+
+  .button-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+}

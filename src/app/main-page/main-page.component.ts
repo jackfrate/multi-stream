@@ -3,6 +3,7 @@ import { MatDialog, MatDialogConfig, MatSlideToggleChange } from '@angular/mater
 import { NewStreamDialogComponent } from '../new-stream-dialog/new-stream-dialog.component';
 import { ChatService } from '../chat.service';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { StreamSizeAdjusterComponent } from '../stream-size-adjuster/stream-size-adjuster.component';
 
 @Component({
   selector: 'app-main-page',
@@ -36,12 +37,19 @@ export class MainPageComponent {
   openAddDialog() {
     const dialogConfig = new MatDialogConfig();
     // ? we can change these
-    this.dialogWidth = '400px';
     // dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = this.dialogWidth;
+    dialogConfig.width = '400px';
 
     this.dialog.open(NewStreamDialogComponent, dialogConfig);
+  }
+
+  openAdjustStreamDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '300px';
+
+    this.dialog.open(StreamSizeAdjusterComponent, dialogConfig);
   }
 
   //
