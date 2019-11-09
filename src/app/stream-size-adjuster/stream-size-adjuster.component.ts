@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { LayoutService } from '../layout.service';
+import { StreamListService } from '../stream-list.service';
 
 @Component({
   selector: 'app-stream-size-adjuster',
@@ -11,12 +12,19 @@ export class StreamSizeAdjusterComponent {
 
   columns: number;
 
-  constructor(private layoutSvc: LayoutService) {
+  constructor(private layoutSvc: LayoutService, private streamSvc: StreamListService) {
     this.columns = this.layoutSvc.columns;
   }
 
   setColumnSize(cols: number) {
-    this.layoutSvc.setColumns(cols);
+    // if the columns is > the streams that are there,
+    // we lower columns to present streams
+    let newCols = cols;
+    if (newCols > this.streamSvc.getStreamSet().size) {
+      newCols = this.streamSvc.getStreamSet().size;
+    }
+
+    this.layoutSvc.setColumns(newCols);
     this.columns = this.layoutSvc.columns;
   }
 
