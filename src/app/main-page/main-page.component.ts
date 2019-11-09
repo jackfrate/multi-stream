@@ -22,7 +22,7 @@ export class MainPageComponent {
   formGroup: FormGroup;
 
   constructor(private dialog: MatDialog, private chatSvc: ChatService) {
-    this.chatOpen = true;
+    this.chatOpen = this.chatSvc.chatOpen;
   }
 
 
