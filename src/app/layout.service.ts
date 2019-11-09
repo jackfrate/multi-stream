@@ -8,7 +8,6 @@ export class LayoutService {
 
   // state
   layoutState: LayoutState;
-  additionalSize: number;
 
   chatOpen: boolean;
 
@@ -20,7 +19,6 @@ export class LayoutService {
     this.columns = 2;
     this.chatOpen = this.chatSvc.chatOpen;
     this.layoutState = new StandardLayout(this.columns, this.chatOpen);
-    this.additionalSize = 0;
   }
 
   getChatHeight(): number {
@@ -28,11 +26,11 @@ export class LayoutService {
   }
 
   getPlayerHeight(): number {
-    return this.layoutState.getPlayerHeight() + this.additionalSize;
+    return this.layoutState.getPlayerHeight() / this.columns;
   }
 
   getPlayerWidth(): number {
-    return this.layoutState.getPlayerWidth() + this.additionalSize;
+    return this.layoutState.getPlayerWidth() / this.columns;
   }
 
   // setters
@@ -117,15 +115,15 @@ class StandardLayout extends LayoutState {
   getPlayerWidth(): number {
     // return ((window.innerWidth - 375) / 2);
     console.log('innerx:');
-    console.log(this.innerX / this.columns);
-    return this.innerX / this.columns;
+    console.log(this.innerX);
+    return this.innerX;
   }
 
   getPlayerHeight(): number {
     // return (window.innerHeight / 2) - 53;
     console.log('innery:');
-    console.log(this.innerY / this.columns);
-    return this.innerY / this.columns;
+    console.log(this.innerY);
+    return this.innerY;
   }
 
 }

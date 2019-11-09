@@ -6,28 +6,18 @@ import { LayoutService } from '../layout.service';
   templateUrl: './stream-size-adjuster.component.html',
   styleUrls: ['./stream-size-adjuster.component.scss']
 })
-export class StreamSizeAdjusterComponent implements OnChanges {
+export class StreamSizeAdjusterComponent {
   readonly dialogTitle = 'Change Stream Size';
 
-  addSize: number;
+  columns: number;
 
   constructor(private layoutSvc: LayoutService) {
-    this.addSize = this.getAddSize();
+    this.columns = this.layoutSvc.columns;
   }
 
-  ngOnInit() {
+  setColumnSize(cols: number) {
+    this.layoutSvc.setColumns(cols);
+    this.columns = this.layoutSvc.columns;
   }
 
-  ngOnChanges() {
-    this.layoutSvc.additionalSize = this.getAddSize();
-  }
-
-  // call on event when number is changed
-  setAddSize(size: number) {
-    this.layoutSvc.additionalSize = size;
-  }
-
-  getAddSize(): number {
-    return this.layoutSvc.additionalSize;
-  }
 }

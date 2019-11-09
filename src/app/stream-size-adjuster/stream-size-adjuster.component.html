@@ -7,18 +7,21 @@
           matInput
           type="number"
           placeholder="Adjust Size"
-          [(ngModel)]="addSize"
+          [(ngModel)]="columns"
         />
       </mat-form-field>
 
       <div class="button-bar">
         <button
           class="mat-raised-button mat-primary"
-          (click)="setAddSize(addSize)"
+          (click)="setColumnSize(columns)"
         >
           Change Size
         </button>
-        <button class="mat-raised-button mat-primary" (click)="setAddSize(0)">
+        <button
+          class="mat-raised-button mat-primary"
+          (click)="setColumnSize(1)"
+        >
           Reset
         </button>
       </div>
