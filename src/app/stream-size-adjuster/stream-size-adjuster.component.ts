@@ -19,12 +19,12 @@ export class StreamSizeAdjusterComponent {
   setColumnSize(cols: number) {
     // if the columns is > the streams that are there,
     // we lower columns to present streams
-    let newCols = cols;
-    if (newCols > this.streamSvc.getStreamSet().size) {
-      newCols = this.streamSvc.getStreamSet().size;
-    }
+    // let newCols = cols;
+    // if (newCols > this.streamSvc.getStreamSet().size) {
+    //   newCols = this.streamSvc.getStreamSet().size;
+    // }
 
-    this.layoutSvc.setColumns(newCols);
+    this.layoutSvc.setColumns(cols);
     this.columns = this.layoutSvc.columns;
   }
 

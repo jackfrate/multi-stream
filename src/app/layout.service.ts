@@ -34,7 +34,7 @@ export class LayoutService {
 
   getPlayerWidth(): number {
     if (this.columns === 1) {
-      return (this.layoutState.getPlayerWidth() / this.columns) - 20;
+      return (this.layoutState.getPlayerWidth()) - 20;
     }
     return this.layoutState.getPlayerWidth() / this.columns;
   }
@@ -119,12 +119,10 @@ class StandardLayout extends LayoutState {
   }
 
   getPlayerWidth(): number {
-    // return ((window.innerWidth - 375) / 2);
     return this.innerX;
   }
 
   getPlayerHeight(): number {
-    // return (window.innerHeight / 2) - 53;
     return this.innerY;
   }
 
