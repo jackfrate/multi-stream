@@ -1,7 +1,7 @@
 import { StreamPair } from '../free-objects/stream-pair';
 import { Component } from '@angular/core';
 import { StreamListService } from '../stream-list.service';
-import { IframeSettingService } from '../iframe-setting.service';
+import { LayoutService } from '../layout.service';
 import { ChatSettings, PlayerSettings } from '../free-objects/settings-interface';
 import { Subscription, Observable, fromEvent } from 'rxjs';
 import { ChatService } from '../chat.service';
@@ -19,7 +19,7 @@ export class ChatViewComponent {
   playerHeight: number;
   playerWidth: number;
 
-  constructor(private streamListSvc: StreamListService, private frameSvc: IframeSettingService) {
+  constructor(private streamListSvc: StreamListService, private frameSvc: LayoutService) {
     this.streamList = this.streamListSvc.getStreamSet();
     this.chatHeight = frameSvc.getChatHeight();
   }

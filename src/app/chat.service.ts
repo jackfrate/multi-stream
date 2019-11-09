@@ -6,5 +6,9 @@ import { ChatSettings } from './free-objects/settings-interface';
   providedIn: 'root'
 })
 export class ChatService {
+  chatOpen: boolean = true;
 
+  toggleChat() {
+    this.chatOpen = !this.chatOpen;
+  }
 }

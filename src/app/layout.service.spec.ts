@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { IframeSettingService } from './iframe-setting.service';
+import { LayoutService } from './layout.service';
 
 describe('IframeSettingService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: IframeSettingService = TestBed.get(IframeSettingService);
+    const service: LayoutService = TestBed.get(LayoutService);
     expect(service).toBeTruthy();
   });
 });
