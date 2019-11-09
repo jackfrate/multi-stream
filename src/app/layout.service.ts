@@ -12,6 +12,9 @@ export class LayoutService {
 
   chatOpen: boolean;
 
+  // TOD): make this controllable
+  columns: number;
+
   constructor(private chatSvc: ChatService) {
     this.chatOpen = this.chatSvc.chatOpen;
     this.layoutState = new StandardLayout(this.chatOpen);
@@ -29,6 +32,11 @@ export class LayoutService {
   getPlayerWidth(): number {
     return this.layoutState.getPlayerWidth() + this.additionalSize;
   }
+
+  // setters
+  setColumns(cols: number) {
+    this.columns = cols;
+  }
 }
 
 abstract class LayoutState {
@@ -38,9 +46,9 @@ abstract class LayoutState {
   protected readonly headerHeight = 64; // 64 actual
   protected readonly chatWidth = 350;
 
-  // these are calculated
-  protected innerX: number;
-  protected innerY: number;
+  // these are calculated, get them for the size of the watch zone
+  innerX: number;
+  innerY: number;
 
   constructor(public chatOpen: boolean) {
 
@@ -56,10 +64,17 @@ abstract class LayoutState {
     const x2 = ((16 * y1) / 9); // get the 16*9 x2 for y1
     const y2 = ((9 * x1) / 16); // get the 16*9 y2 for x1
 
-
-
     // now check which ones are gonna be inner x and y
     // (its the lowest of x2 and y2)
+    if (x2 >= y2) {
+      this.innerX = x1;
+      this.innerY = y2;
+    }
+
+    if (y2 > x2) {
+      this.innerX = x2;
+      this.innerY = y1;
+    }
 
   }
 
