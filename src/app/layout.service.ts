@@ -12,12 +12,14 @@ export class LayoutService {
 
   chatOpen: boolean;
 
-  // TOD): make this controllable
+  // TODO: make this controllable
   columns: number;
 
   constructor(private chatSvc: ChatService) {
+    // TODO: we need a better way to manage columns
+    this.columns = 2;
     this.chatOpen = this.chatSvc.chatOpen;
-    this.layoutState = new StandardLayout(this.chatOpen);
+    this.layoutState = new StandardLayout(this.columns, this.chatOpen);
     this.additionalSize = 0;
   }
 
@@ -50,7 +52,7 @@ abstract class LayoutState {
   innerX: number;
   innerY: number;
 
-  constructor(public chatOpen: boolean) {
+  constructor(public columns: number, public chatOpen: boolean) {
 
   }
 
