@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { StreamListService } from '../stream-list.service';
 import { StreamPair } from '../free-objects/stream-pair';
 import { PlayerSettings } from '../free-objects/settings-interface';
@@ -16,6 +16,7 @@ export class StreamContainerComponent implements OnInit {
   public readonly mixerSite: string = 'mixer';
 
   // map of streaming services, then a list of channels within them
+  @ViewChild('sContainer', { static: false }) streamContainer;
 
   constructor(private streamListSvc: StreamListService, private layoutSvc: LayoutService) { }
 

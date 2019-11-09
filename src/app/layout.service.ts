@@ -4,6 +4,10 @@ import { ChatService } from './chat.service';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * all of the js you're not supposed to use in angular is
+ * encapsulated in here.
+ */
 export class LayoutService {
 
   // state
@@ -30,6 +34,9 @@ export class LayoutService {
   }
 
   getPlayerWidth(): number {
+    if (this.columns === 1) {
+      return (this.layoutState.getPlayerWidth() / this.columns) - 20;
+    }
     return this.layoutState.getPlayerWidth() / this.columns;
   }
 
@@ -91,10 +98,10 @@ abstract class LayoutState {
 
   }
 
-  protected widthAdjuster(totalWidth: number): number {
+  protected widthAdjuster(width: number): number {
     return this.chatOpen
-      ? totalWidth - this.chatWidth
-      : totalWidth;
+      ? width - this.chatWidth
+      : width;
   }
 
   protected heightAdjuster(totalHeight: number): number {
@@ -114,15 +121,11 @@ class StandardLayout extends LayoutState {
 
   getPlayerWidth(): number {
     // return ((window.innerWidth - 375) / 2);
-    console.log('innerx:');
-    console.log(this.innerX);
     return this.innerX;
   }
 
   getPlayerHeight(): number {
     // return (window.innerHeight / 2) - 53;
-    console.log('innery:');
-    console.log(this.innerY);
     return this.innerY;
   }
 
