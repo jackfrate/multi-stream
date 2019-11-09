@@ -28,10 +28,7 @@ export class MainPageComponent {
     this.chatOpen = this.layoutSvc.chatOpen;
   }
 
-
-  // onChange() {
-  //   this.toggleChat();
-  // }
+  // TODO: on resize, update chat dimensions
 
   //
   // add stream dialog methods
