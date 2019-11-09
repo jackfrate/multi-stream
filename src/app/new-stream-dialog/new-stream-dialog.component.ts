@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { StreamListService } from '../stream-list.service';
 import { StreamPair } from '../free-objects/stream-pair';
 

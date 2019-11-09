@@ -3,8 +3,7 @@ import { Component } from '@angular/core';
 import { StreamListService } from '../stream-list.service';
 import { LayoutService } from '../layout.service';
 import { ChatSettings, PlayerSettings } from '../free-objects/settings-interface';
-import { Subscription, Observable, fromEvent } from 'rxjs';
-import { ChatService } from '../chat.service';
+
 
 @Component({
   selector: 'app-chat-view',
