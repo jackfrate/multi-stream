@@ -40,7 +40,14 @@ export class LayoutService {
     this.columns = cols;
   }
 
-  // TODO: make a reset state fn if needed
+  setChatOpen(open: boolean) {
+    this.layoutState.setChatOpen(open);
+  }
+
+  // // TODO: make a reset state fn if needed
+  // resetState(open: boolean) {
+  //   this.layoutState = new StandardLayout(this.columns, open);
+  // }
 }
 
 abstract class LayoutState {
@@ -56,6 +63,10 @@ abstract class LayoutState {
 
   constructor(public columns: number, public chatOpen: boolean) {
     this.setInner16x9();
+  }
+
+  setChatOpen(open: boolean) {
+    this.chatOpen = open;
   }
 
   // find a 16x9 ratio within the available space

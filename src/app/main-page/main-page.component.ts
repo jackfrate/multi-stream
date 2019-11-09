@@ -4,6 +4,7 @@ import { NewStreamDialogComponent } from '../new-stream-dialog/new-stream-dialog
 import { ChatService } from '../chat.service';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { StreamSizeAdjusterComponent } from '../stream-size-adjuster/stream-size-adjuster.component';
+import { LayoutService } from '../layout.service';
 
 @Component({
   selector: 'app-main-page',
@@ -21,7 +22,10 @@ export class MainPageComponent {
 
   formGroup: FormGroup;
 
-  constructor(private dialog: MatDialog, private chatSvc: ChatService) {
+  constructor(
+    private dialog: MatDialog,
+    private chatSvc: ChatService,
+    private layoutSvc: LayoutService) {
     this.chatOpen = this.chatSvc.chatOpen;
   }
 
@@ -58,5 +62,7 @@ export class MainPageComponent {
 
   toggleChat(event: MatSlideToggleChange) {
     this.chatOpen = event.checked;
+    this.chatSvc.toggleChat();
+    this.layoutSvc.setChatOpen(event.checked);
   }
 }
