@@ -42,9 +42,9 @@ class StandardLayout extends LayoutState {
     return window.innerHeight - this.tabHeight;
   }
   getPlayerHeight(): number {
-    return (window.innerHeight / 2) - 50;
+    return (window.innerHeight / 2) - 48;
   }
   getPlayerWidth(): number {
-    return ((window.innerWidth - 390) / 2);
+    return ((window.innerWidth - 375) / 2);
   }
 }
