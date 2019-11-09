@@ -4,9 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ChatService {
-  chatOpen: boolean = true;
+  // chatOpen: boolean = true;
 
-  toggleChat() {
-    this.chatOpen = !this.chatOpen;
-  }
+  // toggleChat() {
+  //   this.chatOpen = !this.chatOpen;
+  // }
 }

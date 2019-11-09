@@ -17,10 +17,10 @@ export class LayoutService {
 
   columns: number;
 
-  constructor(private chatSvc: ChatService) {
+  constructor() {
     // TODO: we need a better way to manage columns
     this.columns = 2;
-    this.chatOpen = this.chatSvc.chatOpen;
+    this.chatOpen = true;
     this.layoutState = new StandardLayout(this.columns, this.chatOpen);
   }
 
@@ -46,6 +46,10 @@ export class LayoutService {
 
   setChatOpen(open: boolean) {
     this.layoutState.setChatOpen(open);
+  }
+
+  toggleChat() {
+    this.chatOpen = !this.chatOpen;
   }
 
   // // TODO: make a reset state fn if needed

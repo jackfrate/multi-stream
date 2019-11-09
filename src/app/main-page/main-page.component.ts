@@ -24,9 +24,8 @@ export class MainPageComponent {
 
   constructor(
     private dialog: MatDialog,
-    private chatSvc: ChatService,
     private layoutSvc: LayoutService) {
-    this.chatOpen = this.chatSvc.chatOpen;
+    this.chatOpen = this.layoutSvc.chatOpen;
   }
 
 
@@ -60,9 +59,8 @@ export class MainPageComponent {
   // chat methods
   //
 
-  toggleChat(event: MatSlideToggleChange) {
-    this.chatOpen = event.checked;
-    this.chatSvc.toggleChat();
-    this.layoutSvc.setChatOpen(event.checked);
+  toggleChat() {
+    this.layoutSvc.toggleChat();
+    this.chatOpen = this.layoutSvc.chatOpen;
   }
 }
