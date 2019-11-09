@@ -39,6 +39,8 @@ export class LayoutService {
   setColumns(cols: number) {
     this.columns = cols;
   }
+
+  // TODO: make a reset state fn if needed
 }
 
 abstract class LayoutState {
@@ -53,7 +55,7 @@ abstract class LayoutState {
   innerY: number;
 
   constructor(public columns: number, public chatOpen: boolean) {
-
+    this.setInner16x9();
   }
 
   // find a 16x9 ratio within the available space
@@ -97,17 +99,22 @@ abstract class LayoutState {
 
 class StandardLayout extends LayoutState {
   getChatHeight(): number {
+    // we don't use innerY because we just want to fill up height no matter what
     return window.innerHeight - this.tabHeight;
   }
 
+  getPlayerWidth(): number {
+    // return ((window.innerWidth - 375) / 2);
+    console.log('innerx:');
+    console.log(this.innerX / this.columns);
+    return this.innerX / this.columns;
+  }
 
   getPlayerHeight(): number {
-    return (window.innerHeight / 2) - 53;
-    // return ((window.innerHeight - 64) / 2);
+    // return (window.innerHeight / 2) - 53;
+    console.log('innery:');
+    console.log(this.innerY / this.columns);
+    return this.innerY / this.columns;
   }
 
-  getPlayerWidth(): number {
-    return ((window.innerWidth - 375) / 2);
-    // return ((window.innerWidth - 350) / 2);
-  }
 }
