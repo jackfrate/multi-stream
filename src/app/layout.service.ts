@@ -8,10 +8,14 @@ export class LayoutService {
 
   // state
   layoutState: LayoutState;
+  additionalSize: number;
+
+  // slider state
 
 
   constructor() {
     this.layoutState = new StandardLayout();
+    this.additionalSize = 0;
   }
 
   getChatHeight(): number {
@@ -19,11 +23,11 @@ export class LayoutService {
   }
 
   getPlayerHeight(): number {
-    return this.layoutState.getPlayerHeight();
+    return this.layoutState.getPlayerHeight() + this.additionalSize;
   }
 
   getPlayerWidth(): number {
-    return this.layoutState.getPlayerWidth();
+    return this.layoutState.getPlayerWidth() + this.additionalSize;
   }
 }
 
@@ -42,9 +46,11 @@ class StandardLayout extends LayoutState {
     return window.innerHeight - this.tabHeight;
   }
   getPlayerHeight(): number {
-    return (window.innerHeight / 2) - 48;
+    return (window.innerHeight / 2) - 53;
+    // return ((window.innerHeight - 64) / 2);
   }
   getPlayerWidth(): number {
     return ((window.innerWidth - 375) / 2);
+    // return ((window.innerWidth - 350) / 2);
   }
 }
