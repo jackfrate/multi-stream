@@ -1,4 +1,4 @@
-import { Injectable, OnChanges, ViewChild, ElementRef } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ChatService } from './chat.service';
 
 @Injectable({
@@ -15,7 +15,6 @@ export class LayoutService {
 
   chatOpen: boolean;
 
-  // TODO: make this controllable
   columns: number;
 
   constructor(private chatSvc: ChatService) {

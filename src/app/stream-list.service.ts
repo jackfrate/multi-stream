@@ -16,7 +16,6 @@ export class StreamListService {
     return this.streamSet;
   }
 
-  // TODO: check if stream already exists?
   addStream(stream: StreamPair): void {
     // check if stream is a link
     if (stream.channel.includes('twitch') && this.urlSvc.checkIfUrl(stream.channel)) {
