@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig, MatSlideToggleChange } from '@angular/material';
+import { Component } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { NewStreamDialogComponent } from '../new-stream-dialog/new-stream-dialog.component';
-import { ChatService } from '../chat.service';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { StreamSizeAdjusterComponent } from '../stream-size-adjuster/stream-size-adjuster.component';
 import { LayoutService } from '../layout.service';
 

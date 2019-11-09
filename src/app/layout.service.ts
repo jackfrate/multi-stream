@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ChatService } from './chat.service';
 import { StreamListService } from './stream-list.service';
 
 @Injectable({
@@ -17,6 +16,8 @@ export class LayoutService {
   chatOpen: boolean;
 
   columns: number;
+
+  readonly scrollBarWidth = 20;
 
   constructor(private streamSvc: StreamListService) {
     // TODO: we need a better way to manage columns
@@ -36,12 +37,12 @@ export class LayoutService {
   getPlayerWidth(): number {
     // if we have one column, adjust for the scrollbar
     if (this.columns === 1) {
-      return (this.layoutState.getPlayerWidth()) - 20;
+      return (this.layoutState.getPlayerWidth()) - this.scrollBarWidth;
     }
 
     // if we have more streams than columns * 2, we gotta adjust for the scrollbar again
     if (this.streamSvc.getStreamSet().size > (this.columns * 2)) {
-      return (this.layoutState.getPlayerWidth() - 20) / this.columns;
+      return (this.layoutState.getPlayerWidth() - this.scrollBarWidth) / this.columns;
     }
 
     return (this.layoutState.getPlayerWidth() / this.columns);
