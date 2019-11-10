@@ -17,13 +17,19 @@ export class LayoutService {
 
   columns: number;
 
+  chatHeight: number;
+
   readonly scrollBarWidth = 20;
 
   constructor(private streamSvc: StreamListService) {
-    // TODO: we need a better way to manage columns
+    this.resetLayout();
+  }
+
+  resetLayout() {
     this.columns = 2;
     this.chatOpen = true;
     this.layoutState = new StandardLayout(this.columns, this.chatOpen);
+    this.chatHeight = this.setChatHeight();
   }
 
   getChatHeight(): number {
@@ -46,6 +52,10 @@ export class LayoutService {
     }
 
     return (this.layoutState.getPlayerWidth() / this.columns);
+  }
+
+  setChatHeight(): number {
+    return this.layoutState.getChatHeight();
   }
 
   // setters

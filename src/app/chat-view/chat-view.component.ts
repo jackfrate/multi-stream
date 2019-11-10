@@ -15,12 +15,10 @@ export class ChatViewComponent {
   private streamList: Set<StreamPair>;
 
   chatHeight: number;
-  playerHeight: number;
-  playerWidth: number;
 
-  constructor(private streamListSvc: StreamListService, private frameSvc: LayoutService) {
+  constructor(private streamListSvc: StreamListService, private layoutSvc: LayoutService) {
     this.streamList = this.streamListSvc.getStreamSet();
-    this.chatHeight = frameSvc.getChatHeight();
+    this.chatHeight = this.layoutSvc.chatHeight;
   }
 
 
@@ -32,18 +30,18 @@ export class ChatViewComponent {
     if (pair.isTwitch()) {
       return `https://www.twitch.tv/embed/${pair.channel}/chat`;
     }
+
     if (pair.isMixer()) {
       return `https://mixer.com/embed/chat/${pair.channel}`;
     }
-    else {
-      return 'https://www.google.com';
-    }
+
+    return 'https://www.google.com';
+
   }
 
-  getChatSettings(): ChatSettings {
+  getChatSettings(): number {
     // ok yeah I know this is bad lol
-    return { height: this.chatHeight };
+    return this.layoutSvc.getChatHeight();
   }
-
 
 }
