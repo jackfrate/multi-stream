@@ -66,11 +66,6 @@ export class LayoutService {
   toggleChat() {
     this.chatOpen = !this.chatOpen;
   }
-
-  // // TODO: make a reset state fn if needed
-  // resetState(open: boolean) {
-  //   this.layoutState = new StandardLayout(this.columns, open);
-  // }
 }
 
 abstract class LayoutState {

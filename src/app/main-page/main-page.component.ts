@@ -13,7 +13,6 @@ import { LayoutService } from '../layout.service';
 export class MainPageComponent {
 
   // chat stuff
-  chatOpen: boolean;
   chatToggleSlider: boolean;
 
   // dialog stuff
@@ -24,7 +23,6 @@ export class MainPageComponent {
   constructor(
     private dialog: MatDialog,
     private layoutSvc: LayoutService) {
-    this.chatOpen = this.layoutSvc.chatOpen;
   }
 
   // TODO: on resize, update chat dimensions
@@ -57,6 +55,9 @@ export class MainPageComponent {
 
   toggleChat() {
     this.layoutSvc.toggleChat();
-    this.chatOpen = this.layoutSvc.chatOpen;
+  }
+
+  getChatState(): boolean {
+    return this.layoutSvc.chatOpen;
   }
 }

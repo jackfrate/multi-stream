@@ -16,9 +16,12 @@ export class ChatViewComponent {
 
   chatHeight: number;
 
+  chatOpen: boolean;
+
   constructor(private streamListSvc: StreamListService, private layoutSvc: LayoutService) {
     this.streamList = this.streamListSvc.getStreamSet();
     this.chatHeight = this.layoutSvc.chatHeight;
+    this.chatOpen = this.layoutSvc.chatOpen;
   }
 
 
@@ -42,6 +45,10 @@ export class ChatViewComponent {
   getChatSettings(): number {
     // ok yeah I know this is bad lol
     return this.layoutSvc.getChatHeight();
+  }
+
+  toggleChat() {
+    this.layoutSvc.toggleChat();
   }
 
 }

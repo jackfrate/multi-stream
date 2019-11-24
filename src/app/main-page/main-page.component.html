@@ -5,6 +5,7 @@
         <p>
           Multi Stream
         </p>
+        <!-- TODO: make these title bar buttons their own components now -->
         <!-- add stream dialog -->
         <button mat-button (click)="openAddDialog()">
           <mat-icon>add_circle</mat-icon>
@@ -12,7 +13,7 @@
         </button>
         <!-- toggle chat button -->
         <button mat-button>
-          <mat-slide-toggle [checked]="chatOpen" (change)="toggleChat()">
+          <mat-slide-toggle [checked]="getChatState()" (change)="toggleChat()">
             Toggle Chat
           </mat-slide-toggle>
         </button>
@@ -24,5 +25,5 @@
     </mat-toolbar>
     <app-stream-container></app-stream-container>
   </div>
-  <app-chat-view class="chat" *ngIf="chatOpen"></app-chat-view>
+  <app-chat-view class="chat"></app-chat-view>
 </div>
