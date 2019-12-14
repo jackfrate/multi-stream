@@ -21,6 +21,7 @@ export class LayoutService {
 
   // TODO: if on MAC, don't do the ratio thing
 
+  // readonly scrollBarWidth = 20;
   readonly scrollBarWidth = 20;
 
   constructor(private streamSvc: StreamListService) {

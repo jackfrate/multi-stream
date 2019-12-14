@@ -45,6 +45,4 @@ export class ChatViewComponent {
     return this.layoutSvc.getChatHeight();
   }
 
-
-
 }

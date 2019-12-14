@@ -58,7 +58,6 @@ export class MainPageComponent {
     this.layoutSvc.chatOpen = this.chatOpen;
   }
 
-
   getChatState(): boolean {
     return this.layoutSvc.chatOpen;
   }
