@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { NewStreamDialogComponent } from '../new-stream-dialog/new-stream-dialog.component';
 import { StreamSizeAdjusterComponent } from '../stream-size-adjuster/stream-size-adjuster.component';
@@ -9,7 +9,7 @@ import { LayoutService } from '../layout.service';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent {
+export class MainPageComponent implements OnInit {
 
   // chat stuff
   chatToggleSlider: boolean;
@@ -25,8 +25,10 @@ export class MainPageComponent {
     this.chatOpen = this.layoutSvc.chatOpen;
   }
 
-  // TODO: on resize, update chat dimensions
 
+  ngOnInit() {
+    this.layoutSvc.resetLayout();
+  }
   //
   // add stream dialog methods
   //
@@ -56,6 +58,7 @@ export class MainPageComponent {
   toggleChat() {
     this.chatOpen = !this.chatOpen;
     this.layoutSvc.chatOpen = this.chatOpen;
+    this.layoutSvc.resetLayout();
   }
 
   getChatState(): boolean {
