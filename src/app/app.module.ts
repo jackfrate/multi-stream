@@ -21,7 +21,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { StreamSizeAdjusterComponent } from './stream-size-adjuster/stream-size-adjuster.component';
 import { FormsModule } from '@angular/forms';
-
+import { DeviceDetectorModule } from 'ngx-device-detector';
 
 // TODO: need to make a separate module for material stuff
 
@@ -50,6 +50,7 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatTabsModule,
     MatSlideToggleModule,
+    DeviceDetectorModule.forRoot(),
   ],
   exports: [
     MatSelectModule,

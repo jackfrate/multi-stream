@@ -69,6 +69,14 @@ export class LayoutService {
   toggleChat() {
     this.chatOpen = !this.chatOpen;
   }
+
+  /**
+   * sets the layout state based on stuff
+   * TODO: we should make an object just dedicated to this
+   */
+  private setLayoutState() {
+    
+  }
 }
 
 abstract class LayoutState {
