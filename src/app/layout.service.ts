@@ -91,7 +91,6 @@ abstract class LayoutState {
   }
 
   // find a 16x9 ratio within the available space
-  // TODO: make this run on window resize
   protected setInner16x9() {
     const x1 = this.widthAdjuster(window.innerWidth);
     const y1 = this.heightAdjuster(window.innerHeight);

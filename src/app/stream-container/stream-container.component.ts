@@ -56,7 +56,7 @@ export class StreamContainerComponent implements OnInit, OnDestroy {
   }
 
 
-  // TODO: make this use a map of pair services and urls to return
+  // TODO: make this use a msap of pair services and urls to return
   getStreamSrc(pair: StreamPair): string {
     if (pair.isTwitch()) {
       return `https://player.twitch.tv/?channel=${pair.channel}`;

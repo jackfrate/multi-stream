@@ -7,7 +7,6 @@ export class StreamPair {
 
   //
   // methods that check for the service
-  // TODO: should change all the checks to use these
   //
 
   public isTwitch(): boolean {
