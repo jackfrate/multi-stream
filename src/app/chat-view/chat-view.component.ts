@@ -2,7 +2,6 @@ import { StreamPair } from '../free-objects/stream-pair';
 import { Component } from '@angular/core';
 import { StreamListService } from '../stream-list.service';
 import { LayoutService } from '../layout.service';
-import { ChatSettings, PlayerSettings } from '../free-objects/settings-interface';
 
 
 @Component({
