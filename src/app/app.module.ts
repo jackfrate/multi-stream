@@ -14,7 +14,6 @@ import { FormsModule } from '@angular/forms';
 import { AppMaterialModule } from './app-material/app-material.module';
 
 
-// TODO: need to make a separate module for material stuff
 
 @NgModule({
   declarations: [
