@@ -20,19 +20,27 @@ export class LayoutService {
 
   chatHeight: number;
 
-  // TODO: if on MAC, don't do the ratio thing
+  scrollBarWidth: number;
 
-  // readonly scrollBarWidth = 20;
+  private deviceSettings;
 
   constructor(private streamSvc: StreamListService, private deviceSvc: DeviceDetectorService) {
+    this.deviceSettings = this.deviceSvc.getDeviceInfo();
+    // this is spaghet, make sure ot remove it here or in init
+    this.resetLayout();
+  }
+
+  // tslint:disable-next-line: contextual-lifecycle
+  ngOnInit() {
     this.resetLayout();
   }
 
   resetLayout() {
     this.columns = 2;
-    this.layoutState = new StandardLayout(this.columns, this.chatOpen);
     this.chatOpen = true;
     this.chatHeight = this.setChatHeight();
+    this.setLayoutState();
+    this.scrollBarWidth = this.layoutState.scrollBarWidth;
   }
 
   getChatHeight(): number {
@@ -75,8 +83,18 @@ export class LayoutService {
    * TODO: we should make an object just dedicated to this
    */
   private setLayoutState() {
-    const deviceInfo = this.deviceSvc.getDeviceInfo();
     // if mac os, we want a different layout state
+    // this.layoutState = new StandardLayout(this.columns, this.chatOpen);
+
+    if (this.deviceSettings.os === "Mac") {
+      this.layoutState = new MacLayout(this.columns, this.chatOpen);
+    }
+    // better to be safe
+    // ! IMPORTANT TODO:
+    // TODO: make a toggle for changing the state incase scrollbar is messed up
+    else {
+      this.layoutState = new WindowsLayout(this.columns, this.chatOpen);
+    }
   }
 }
 
@@ -139,9 +157,7 @@ abstract class LayoutState {
   abstract getPlayerWidth(): number;
 }
 
-class WindowsLayout extends LayoutState {
-  readonly scrollBarWidth = 20;
-
+abstract class BasicLayoutState extends LayoutState {
   getChatHeight(): number {
     // we don't use innerY because we just want to fill up height no matter what
     return window.innerHeight - this.tabHeight;
@@ -156,19 +172,10 @@ class WindowsLayout extends LayoutState {
   }
 }
 
-class MacLayout extends LayoutState {
+class WindowsLayout extends BasicLayoutState {
   readonly scrollBarWidth = 20;
+}
 
-  getChatHeight(): number {
-    // we don't use innerY because we just want to fill up height no matter what
-    return window.innerHeight - this.tabHeight;
-  }
-
-  getPlayerWidth(): number {
-    return this.innerX;
-  }
-
-  getPlayerHeight(): number {
-    return this.innerY;
-  }
+class MacLayout extends BasicLayoutState {
+  readonly scrollBarWidth = 0;
 }
