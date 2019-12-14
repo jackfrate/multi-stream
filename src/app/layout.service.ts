@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { StreamListService } from './stream-list.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +23,8 @@ export class LayoutService {
   // TODO: if on MAC, don't do the ratio thing
 
   // readonly scrollBarWidth = 20;
-  readonly scrollBarWidth = 20;
 
-  constructor(private streamSvc: StreamListService) {
+  constructor(private streamSvc: StreamListService, private deviceSvc: DeviceDetectorService) {
     this.resetLayout();
   }
 
@@ -75,11 +75,13 @@ export class LayoutService {
    * TODO: we should make an object just dedicated to this
    */
   private setLayoutState() {
-    
+    const deviceInfo = this.deviceSvc.getDeviceInfo();
+    // if mac os, we want a different layout state
   }
 }
 
 abstract class LayoutState {
+  abstract readonly scrollBarWidth: number;
 
   // this one is a little exaggerated so that the chat stays in the window right
   protected readonly tabHeight = 54; // 48 actual
@@ -137,7 +139,9 @@ abstract class LayoutState {
   abstract getPlayerWidth(): number;
 }
 
-class StandardLayout extends LayoutState {
+class WindowsLayout extends LayoutState {
+  readonly scrollBarWidth = 20;
+
   getChatHeight(): number {
     // we don't use innerY because we just want to fill up height no matter what
     return window.innerHeight - this.tabHeight;
@@ -150,5 +154,21 @@ class StandardLayout extends LayoutState {
   getPlayerHeight(): number {
     return this.innerY;
   }
+}
 
+class MacLayout extends LayoutState {
+  readonly scrollBarWidth = 20;
+
+  getChatHeight(): number {
+    // we don't use innerY because we just want to fill up height no matter what
+    return window.innerHeight - this.tabHeight;
+  }
+
+  getPlayerWidth(): number {
+    return this.innerX;
+  }
+
+  getPlayerHeight(): number {
+    return this.innerY;
+  }
 }
