@@ -29,8 +29,8 @@ export class LayoutService {
 
   resetLayout() {
     this.columns = 2;
-    this.chatOpen = true;
     this.layoutState = new StandardLayout(this.columns, this.chatOpen);
+    this.chatOpen = true;
     this.chatHeight = this.setChatHeight();
   }
 

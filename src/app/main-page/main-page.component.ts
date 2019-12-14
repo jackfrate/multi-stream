@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { NewStreamDialogComponent } from '../new-stream-dialog/new-stream-dialog.component';
-import { FormGroup } from '@angular/forms';
 import { StreamSizeAdjusterComponent } from '../stream-size-adjuster/stream-size-adjuster.component';
 import { LayoutService } from '../layout.service';
 
@@ -18,11 +17,12 @@ export class MainPageComponent {
   // dialog stuff
   dialogWidth: string;
 
-  formGroup: FormGroup;
+  chatOpen: boolean;
 
   constructor(
     private dialog: MatDialog,
     private layoutSvc: LayoutService) {
+    this.chatOpen = this.layoutSvc.chatOpen;
   }
 
   // TODO: on resize, update chat dimensions
@@ -54,8 +54,10 @@ export class MainPageComponent {
   //
 
   toggleChat() {
-    this.layoutSvc.toggleChat();
+    this.chatOpen = !this.chatOpen;
+    this.layoutSvc.chatOpen = this.chatOpen;
   }
+
 
   getChatState(): boolean {
     return this.layoutSvc.chatOpen;

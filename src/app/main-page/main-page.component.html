@@ -25,5 +25,5 @@
     </mat-toolbar>
     <app-stream-container></app-stream-container>
   </div>
-  <app-chat-view class="chat"></app-chat-view>
+  <app-chat-view *ngIf="chatOpen" class="chat"></app-chat-view>
 </div>

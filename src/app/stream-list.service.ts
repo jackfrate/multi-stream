@@ -39,7 +39,7 @@ export class StreamListService {
   private getDummyData(): StreamPair[] {
     return [
       new StreamPair('gladd', 'twitch'),
-      new StreamPair('c9sneaky', 'twitch'),
+      // new StreamPair('c9sneaky', 'twitch'),
       new StreamPair('shroud', 'mixer')
     ];
   }
