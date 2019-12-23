@@ -41,6 +41,7 @@ export class StreamListService {
       // new StreamPair('gladd', 'twitch'),
       // new StreamPair('c9sneaky', 'twitch'),
       // new StreamPair('shroud', 'mixer'),
+      new StreamPair('undefined', 'twitch')
     ];
   }
 }

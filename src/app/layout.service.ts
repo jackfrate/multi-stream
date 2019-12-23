@@ -29,7 +29,7 @@ export class LayoutService {
   }
 
   resetLayout() {
-    this.columns = 2;
+    this.columns = 1;
     this.layoutState = new StandardLayout(this.columns, this.chatOpen);
     this.chatOpen = true;
     this.chatHeight = this.setChatHeight();
@@ -45,7 +45,7 @@ export class LayoutService {
 
   getPlayerWidth(): number {
     // if we have one column, adjust for the scrollbar
-    if (this.columns === 1) {
+    if (this.columns === 1 && this.chatOpen === false) {
       return (this.layoutState.getPlayerWidth()) - this.scrollBarWidth;
     }
 
@@ -101,17 +101,26 @@ abstract class LayoutState {
 
     // now check which ones are gonna be inner x and y
     // (its the lowest of x2 and y2)
-    if (x2 >= y2) {
+    // TODO: the prblmen happens here
+    let debug: string;
+    // need to add an and here
+    if ((x2 >= y2)) {
       this.innerX = x1;
       this.innerY = y2;
+      debug = 'using x1 and y2: x2 >= y2 WRONG';
     }
 
     if (y2 > x2) {
       this.innerX = x2;
       this.innerY = y1;
+      debug = 'using x2 and y1: y2 > x2 CORRECT';
     }
 
+    console.log(`x1: ${x1}, x2: ${x2} \n y1: ${y1}, y2: ${y2} \n ${debug}`);
+
   }
+
+  // TODO: private method that will fix x and y dimentions (make this a real solution later)
 
   protected widthAdjuster(width: number): number {
     return this.chatOpen
